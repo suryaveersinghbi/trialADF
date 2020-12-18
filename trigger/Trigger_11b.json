@@ -1,0 +1,29 @@
+{
+	"name": "Trigger_11b",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "CopyFromBlobPipeline",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"windowStart": "@trigger().outputs.windowStartTime",
+				"windowEnd": "@trigger().outputs.windowEndTime"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 6,
+			"startTime": "2020-12-18T03:28:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": []
+		}
+	}
+}
